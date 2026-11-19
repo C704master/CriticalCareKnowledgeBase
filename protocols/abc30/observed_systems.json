@@ -1,0 +1,17 @@
+[
+  {
+    "sha256_utf8": "2288f0c3d150c3d22aab9253b35a984b932caa41ab9cadfb6f9d70f51b643db5",
+    "file": "system_2288f0c3d150.txt",
+    "chars": 295
+  },
+  {
+    "sha256_utf8": "0da2c6cf05cbe6fefb5820d0af42576a8b6bb4a0144be0dbde1ab52c3a5efa81",
+    "file": "system_0da2c6cf05cb.txt",
+    "chars": 148
+  },
+  {
+    "sha256_utf8": "bae998b52b29f4cc1081250caf1b91e6644f92ea4634e58831e0dc7eedde0b25",
+    "file": "system_bae998b52b29.txt",
+    "chars": 193
+  }
+]

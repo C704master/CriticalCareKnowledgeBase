@@ -15,3 +15,5 @@
 背景阅读见[早期实验与系统验收](reports/00-early-and-acceptance.md)，其中附有逐子问题检索量表。
 
 [11 月 19 日提示词变更与配对实验记录（v4—v10）](reports/05-prompt-history.md)
+
+[按批次查看实验结果、格式版本和实际调用台账](reports/06-record-coverage.md)
