@@ -1,5 +1,7 @@
 # 重症知识库实验记录｜2026 年 11 月 1—19 日
 
+**[导师三份 Word 原件及后续实验原始文档](originals/README.md)**
+
 ## 导师阅读顺序
 
 1. [Agent-loop 检索结果](reports/01-agent-loop.md)解释多轮检索的命中和耗时。

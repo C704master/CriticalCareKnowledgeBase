@@ -1,0 +1,73 @@
+{
+  "questions": 30,
+  "complete_answers": 90,
+  "reused_answers": 9,
+  "new_answers": 81,
+  "final_stop_count": 90,
+  "degraded_cells": [
+    "N30-09/C",
+    "N30-14/C",
+    "N30-22/C",
+    "N30-28/C"
+  ],
+  "zero_citation_cells": [
+    "N30-01/A",
+    "N30-01/B",
+    "N30-14/A",
+    "N30-14/B",
+    "N30-25/A",
+    "N30-26/A",
+    "N30-26/B",
+    "N30-26/C",
+    "N30-29/A",
+    "N30-29/B",
+    "N30-29/C",
+    "N30-30/B"
+  ],
+  "transport_recovered_cells": [
+    "N30-05/C"
+  ],
+  "invalid_citation_id_total": 0,
+  "network_attempts_in_90_cells": 213,
+  "reported_total_tokens": 4296046,
+  "calls_without_usage": 8,
+  "new_network_attempts": 192,
+  "new_reported_tokens": 3855968,
+  "prior_failed_credential_batch": "new30_pilot3_qwen_abc_20261114, 2 physical attempts, no usage reported, separate overhead not counted as new generation",
+  "protected_files_unchanged": true,
+  "same_initial_retrieval_all_cases": true,
+  "doctor_reviews": 0,
+  "clinical_winner": null,
+  "per_arm": {
+    "A": {
+      "cells": 30,
+      "elapsed_median_seconds": 50.711,
+      "elapsed_mean_seconds": 56.1093,
+      "elapsed_min_seconds": 24.891,
+      "elapsed_max_seconds": 113.984,
+      "knowledge_queries": 30,
+      "degraded": 0,
+      "zero_citation": 5
+    },
+    "B": {
+      "cells": 30,
+      "elapsed_median_seconds": 58.2345,
+      "elapsed_mean_seconds": 62.7788,
+      "elapsed_min_seconds": 29.672,
+      "elapsed_max_seconds": 135.266,
+      "knowledge_queries": 143,
+      "degraded": 0,
+      "zero_citation": 5
+    },
+    "C": {
+      "cells": 30,
+      "elapsed_median_seconds": 74.711,
+      "elapsed_mean_seconds": 80.97556666666667,
+      "elapsed_min_seconds": 40.719,
+      "elapsed_max_seconds": 206.687,
+      "knowledge_queries": 113,
+      "degraded": 4,
+      "zero_citation": 2
+    }
+  }
+}

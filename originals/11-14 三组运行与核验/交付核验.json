@@ -1,0 +1,19 @@
+{
+  "status": "PASS_DELIVERY_INTEGRITY_NOT_CLINICAL_QUALITY",
+  "complete_questions": 30,
+  "complete_answers": 90,
+  "reused_answers": 9,
+  "new_answers": 81,
+  "same_patient_input_prompt_and_generation_settings": true,
+  "same_initial_retrieval_for_each_case": true,
+  "protected_files_verified": 1643,
+  "protected_files_changed": 0,
+  "hash_files_verified_before_final_receipt": 1946,
+  "local_links_verified_before_final_receipt": 429,
+  "doctor_answers_unchanged": 90,
+  "blank_review_rows": 60,
+  "physical_network_attempts_reconciled": 213,
+  "all_answer_finish_reason": "stop",
+  "doctor_reviews_completed": 0,
+  "clinical_quality_comparison": "pending"
+}
