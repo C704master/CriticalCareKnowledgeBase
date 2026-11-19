@@ -1,0 +1,6 @@
+﻿arm,stage,network_attempts,completed,measured_attempt_seconds,known_prompt_tokens,known_completion_tokens,unknown_usage_attempts
+A,final,12,12,909.9040000000969,305076,22132,0
+B,final,12,12,978.1710000002058,307492,23664,0
+B,static_plan,11,11,111.02900000009686,303562,1532,0
+C,final,12,12,940.0460000000894,306292,21379,0
+C,loop_plan,31,31,224.54999999993015,989096,2152,0
