@@ -1,7 +1,8 @@
 from pathlib import Path
 from collections import Counter
 import csv,statistics,itertools,json,re,sys
-from review import o,read,armdata,refs
+from review import o,read,armdata
+from evidence_refs import refs_by_line
 cases=read(o/'manifest.json')
 l5={}
 src=o.parents[3]/'data/05_evidence_fragments/evidence_fragments.jsonl'
@@ -42,11 +43,18 @@ for m in cases:
   for i,u in enumerate(x['rank'],1):labrows.append(dict(病例=tag,方法=a,层='知识',位置=i,ID=u['uid'],标签=labels.get('U'+u['uid'],''),正文点名=''))
   for i,f in enumerate(ev,1):labrows.append(dict(病例=tag,方法=a,层='原文',位置=i,ID=f['fragment_id'],标签=labels.get('F'+f['fragment_id'],''),正文点名=int(i in nr)))
   packet+=['## 答案'+names[a],'']
-  for line in ans.splitlines():
+  line_refs=refs_by_line(ans)
+  for line_number,line in enumerate(ans.splitlines()):
    packet.append(line)
-   for n in refs(line):
+   for n in line_refs.get(line_number, []):
     f=ev[n-1] if 0<n<=len(ev) else None
-    packet+=['','<details><summary>查看 E'+str(n)+' 原文</summary>','',('> '+f['raw_text'].replace('\n','\n> ')+'\n\n'+f['source_title']+' · '+f['fragment_id']) if f else '本次输入没有对应原文。','','</details>','']
+    packet+=['','<details><summary>查看 E'+str(n)+' 原文</summary>','',('> '+f['raw_text'].replace('\n','\n> ')+'\n\n'+f['source_title']+' · '+f['fragment_id']) if f else '本次输入没有对应原文。']
+    if f and len(f.get('bindings',[]))>1:
+     packet+=['','同文挂载（各自适用）','']
+     for b in f['bindings']:
+      people='、'.join(b['适用人群'] or []) or '未标注'
+      packet.append(f"- {b['来源']}（{b['来源ID']}，{b['章节']}，{b['L5片段']}） · {b['L4单元']} · {b['L4规则'] or '未提供规则'} · 适用人群：{people}")
+    packet+=['','</details>','']
   if q:
    z=q['answers'][names[a]];qr.append(dict(病例=tag,方法=a,贡献=z['gain'],局限=z['limit'],答案定位=z['quote'],病例定位=z['fact'],支持初评=z['support'],答案定位状态=z.get('quote_status','完整逐字匹配'),病例定位状态=z.get('fact_status','完整逐字匹配')))
  (c/'三份匿名答案与原文.md').write_text('\n'.join(packet),'utf8')

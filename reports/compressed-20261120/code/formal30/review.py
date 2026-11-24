@@ -2,22 +2,17 @@ from pathlib import Path
 import json,re,asyncio,sys,random,hashlib,os
 from dotenv import dotenv_values
 from batch_transport import Transport,read,save
+from applicability import fragment_text
+from evidence_refs import refs
 o=Path(__file__).resolve().parent;w=o.parent.parents[1]
 key=dotenv_values(w/'t06_prompt_pilot_20261117/.env')['QWEN_TRIAL_API_KEY']
 checks=(o/'预设检查点.txt').read_text('utf-8-sig').splitlines()
-def refs(txt):
- ids=[]
- for g in re.finditer(r'\[E\s*\d+(?:\s*[-–—至,，、]\s*E?\s*\d+)*\](?:\s*[-–—至]\s*\[E\d+\])?',txt):
-  nums=list(map(int,re.findall(r'\d+',g.group())))
-  if len(nums)==2 and re.search(r'[-–—至]',g.group()) and 0<nums[0]<=nums[1]<=100:nums=list(range(nums[0],nums[1]+1))
-  ids.extend(nums)
- return list(dict.fromkeys(ids))
 def armdata(c):
  m=read(c/'freeze.json');out={}
  for a in ['direct','static','loop']:
   d=c/a;ev=read(d/'evidence.json');answer=(d/'answer.md').read_text('utf8');p=next(d.glob('calls/*_final/request.json'))
   r=read(p);res=read(p.parent/read(p.parent/'checkpoint.json')['selected_attempt']/'response.json')
-  raw='\n'.join(f"[E{i}] {f['source_title']}（{f['fragment_id']}） {f['raw_text']}" for i,f in enumerate(ev,1))
+  raw='\n'.join(fragment_text(i,f) for i,f in enumerate(ev,1))
   assert r['messages'][1]['content']==m['prefix']+raw and r['messages'][0]['content']==(o.parent/'citation_rule_r1/system_prompt.txt').read_text('utf8')
   assert res['finish_reason']=='stop' and res['message']['content']==answer and len(ev)<=10 and not r.get('tools')
   if a=='direct':assert not ev and not list(d.glob('query*'))
