@@ -40,17 +40,20 @@ async def run(tag,arm):
  cell=output/tag/arm;m=read(D/tag/'freeze.json');cell.mkdir(parents=True,exist_ok=True)
  original=D/tag/arm
  if (cell/'result.json').exists():return
- t=Transport(cell,cell,key);start=time.monotonic();lists=[];history=[];results=[];units={};orders=[]
+ t=Transport(cell,cell,key);start=time.monotonic();history=[];results=[];units={};orders=[]
  async def plan(instr,obj):
   msg=await t.call('plan',[{'role':'system','content':instr},{'role':'user','content':json.dumps(obj,ensure_ascii=False)}],max_tokens=900)
   return planjson(msg['content'])
  def search(q):
   assert len(history)<4
-  p=Pool(K,q,cell/f'query{len(history)+1}');p.retrieve(q);rank=[]
+  p=Pool(K,q,cell/f'query{len(history)+1}');p.retrieve(q);hits=[]
   for u in p.selected:
    z=json.loads(u['content'])
    for f in z['fragments']:
-    if f['raw_text'].strip():rank.append(dict(**f,title=z['unit_title'],uid=z['unit_id'],score=u['semantic_score']))
+    if f['raw_text'].strip():
+     hits.append({'title':z['unit_title'],'fragment_id':f['fragment_id']})
+     if len(hits)==8:break
+   if len(hits)==8:break
   from dataclasses import replace
   from query_engine.sorter import rank_units_v2
   scores=K.data.l4_cosine_scores(p.query_vector,list(p.candidates))
@@ -62,7 +65,7 @@ async def run(tag,arm):
   orders.append([u.unit_id for u in ordered])
   save(p.directory/'fusion_order.json', orders[-1])
   for u in ordered:units[u.unit_id]=u
-  lists.append(rank);history.append(dict(query=q,hits=[{'title':v['title'],'fragment_id':v['fragment_id']} for v in rank[:8]]))
+  history.append(dict(query=q,hits=hits))
   save(cell/'history.json',history)
  obj={'原题':m['question'],'截止':m['cutoff'],'病例':m['patient']}
  resume_final=next(cell.glob('calls/*_final/request.json'),None)
@@ -82,12 +85,8 @@ async def run(tag,arm):
    results.append(res);save(cell/'decisions.json',results);q=res['query'].strip()
    if not q or q in [h['query'] for h in history]:break
    search(q)
- ev=read(cell/'evidence.json') if resume_final else [];used=set();candidates=[]
- for i in range(max(map(len,lists),default=0)):
-  for rank in lists:
-   if i<len(rank) and rank[i]['fragment_id'] not in used:
-    f=rank[i];used.add(f['fragment_id']);candidates.append(f)
- if lists:
+ ev=read(cell/'evidence.json') if resume_final else []
+ if orders:
   # Apply the same reciprocal-rank fusion to both arms before source selection.
   from collections import Counter
   weights=Counter()
