@@ -1,4 +1,6 @@
-# 重症知识库实验记录｜2026 年 11 月 1—20 日
+# 重症知识库实验记录｜2026 年 11 月
+
+[11 月下旬 Agent-loop 实验归档：停查、日档字段选择与日期核验](reports/agent-loop-20261126/README.md)
 
 [11 月 20 日实验源码（试点、正式三组生成与评阅）](reports/compressed-20261120/code/README.md)
 
