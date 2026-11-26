@@ -1,0 +1,116 @@
+{
+  "v19": {
+    "tp": 2,
+    "tn": 5,
+    "fp": 1,
+    "fn": 2,
+    "accuracy": 0.7
+  },
+  "v20": {
+    "tp": 2,
+    "tn": 4,
+    "fp": 2,
+    "fn": 2,
+    "accuracy": 0.6
+  },
+  "v21": {
+    "规则": "带单位区间且显式引用E编号走V20，其余走V19",
+    "rows": [
+      {
+        "case": "F22",
+        "id": "1",
+        "source": "v19",
+        "source_sha": "c7f54f5a620204242bf87031fd18794ab57724b1f16eca45beeb93801eab7b4a",
+        "qwen": "保留",
+        "reference": "保留",
+        "agree": true
+      },
+      {
+        "case": "F22",
+        "id": "2",
+        "source": "v19",
+        "source_sha": "c7f54f5a620204242bf87031fd18794ab57724b1f16eca45beeb93801eab7b4a",
+        "qwen": "保留",
+        "reference": "提醒",
+        "agree": false
+      },
+      {
+        "case": "F22",
+        "id": "3",
+        "source": "v19",
+        "source_sha": "c7f54f5a620204242bf87031fd18794ab57724b1f16eca45beeb93801eab7b4a",
+        "qwen": "保留",
+        "reference": "保留",
+        "agree": true
+      },
+      {
+        "case": "F22",
+        "id": "4",
+        "source": "v19",
+        "source_sha": "c7f54f5a620204242bf87031fd18794ab57724b1f16eca45beeb93801eab7b4a",
+        "qwen": "提醒",
+        "reference": "提醒",
+        "agree": true
+      },
+      {
+        "case": "F22",
+        "id": "5",
+        "source": "v19",
+        "source_sha": "c7f54f5a620204242bf87031fd18794ab57724b1f16eca45beeb93801eab7b4a",
+        "qwen": "提醒",
+        "reference": "提醒",
+        "agree": true
+      },
+      {
+        "case": "F26",
+        "id": "1",
+        "source": "v19",
+        "source_sha": "4f02838a9ce5cb0c70e4106ae79e151a453ad547d3a265fac36bacf3e39662ef",
+        "qwen": "保留",
+        "reference": "保留",
+        "agree": true
+      },
+      {
+        "case": "F26",
+        "id": "2",
+        "source": "v19",
+        "source_sha": "4f02838a9ce5cb0c70e4106ae79e151a453ad547d3a265fac36bacf3e39662ef",
+        "qwen": "保留",
+        "reference": "保留",
+        "agree": true
+      },
+      {
+        "case": "F26",
+        "id": "3",
+        "source": "v20",
+        "source_sha": "129dc2a599256ca618db7f124ed4f9de9dec6c0f817e3fb7e4971e77fd705216",
+        "qwen": "提醒",
+        "reference": "提醒",
+        "agree": true
+      },
+      {
+        "case": "F26",
+        "id": "4",
+        "source": "v19",
+        "source_sha": "4f02838a9ce5cb0c70e4106ae79e151a453ad547d3a265fac36bacf3e39662ef",
+        "qwen": "保留",
+        "reference": "保留",
+        "agree": true
+      },
+      {
+        "case": "F26",
+        "id": "5",
+        "source": "v19",
+        "source_sha": "4f02838a9ce5cb0c70e4106ae79e151a453ad547d3a265fac36bacf3e39662ef",
+        "qwen": "提醒",
+        "reference": "保留",
+        "agree": false
+      }
+    ],
+    "actual_new_requests": 0
+  },
+  "研究侧同一疑点": [
+    "F22-4",
+    "F26-3"
+  ]
+}

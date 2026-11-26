@@ -1,0 +1,216 @@
+{
+  "reference_issues": [
+    "B",
+    "C",
+    "D",
+    "E",
+    "H",
+    "I"
+  ],
+  "single": {
+    "F28": {
+      "serial": {
+        "s": 13.813,
+        "tokens": 32841,
+        "first": 4.782,
+        "model_issues": [
+          "B"
+        ]
+      },
+      "parallel": {
+        "s": 11.593,
+        "tokens": 32921,
+        "first": 7.765,
+        "model_issues": [
+          "B"
+        ]
+      }
+    },
+    "F25": {
+      "serial": {
+        "s": 15.937,
+        "tokens": 26677,
+        "first": 6.25,
+        "model_issues": []
+      },
+      "parallel": {
+        "s": 11.485,
+        "tokens": 26688,
+        "first": 8.094,
+        "model_issues": []
+      }
+    },
+    "F30": {
+      "serial": {
+        "s": 23.39,
+        "tokens": 43825,
+        "first": 10.172,
+        "model_issues": [
+          "H",
+          "I"
+        ]
+      },
+      "parallel": {
+        "s": 11.156,
+        "tokens": 43866,
+        "first": 6.328,
+        "model_issues": [
+          "H",
+          "I"
+        ]
+      }
+    }
+  },
+  "grouped": {
+    "grouped": {
+      "s": 23.422,
+      "tokens": 32461,
+      "completed": {
+        "F28": 17.641,
+        "F25": 20.609,
+        "F30": 23.422
+      },
+      "detected": [
+        "B",
+        "C",
+        "D",
+        "H",
+        "I"
+      ],
+      "missed": [
+        "E"
+      ],
+      "false_alerts": []
+    },
+    "grouped-serial": {
+      "s": 73.156,
+      "tokens": 32498,
+      "completed": {
+        "F28": 22.297,
+        "F25": 41.406,
+        "F30": 73.156
+      },
+      "detected": [
+        "B",
+        "C",
+        "D",
+        "H",
+        "I"
+      ],
+      "missed": [
+        "E"
+      ],
+      "false_alerts": []
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "R1",
+      "case": "F28",
+      "assisted": false,
+      "s": 12.21,
+      "detected": [
+        "B",
+        "C"
+      ],
+      "extra": [],
+      "missed": []
+    },
+    {
+      "reviewer": "R2",
+      "case": "F28",
+      "assisted": true,
+      "s": 11.838,
+      "detected": [
+        "B",
+        "C"
+      ],
+      "extra": [],
+      "missed": []
+    },
+    {
+      "reviewer": "R1",
+      "case": "F25",
+      "assisted": true,
+      "s": 9.207,
+      "detected": [
+        "D",
+        "E"
+      ],
+      "extra": [],
+      "missed": []
+    },
+    {
+      "reviewer": "R2",
+      "case": "F25",
+      "assisted": false,
+      "s": 6.812,
+      "detected": [
+        "D",
+        "E"
+      ],
+      "extra": [],
+      "missed": []
+    },
+    {
+      "reviewer": "R1",
+      "case": "F30",
+      "assisted": false,
+      "s": 7.78,
+      "detected": [
+        "H",
+        "I"
+      ],
+      "extra": [],
+      "missed": []
+    },
+    {
+      "reviewer": "R2",
+      "case": "F30",
+      "assisted": true,
+      "s": 7.519,
+      "detected": [
+        "H",
+        "I"
+      ],
+      "extra": [],
+      "missed": []
+    }
+  ],
+  "shown_cards": {
+    "detected": [
+      "B",
+      "C",
+      "H",
+      "I"
+    ],
+    "missed": [
+      "D",
+      "E"
+    ],
+    "false_alerts": []
+  },
+  "offline_change": {
+    "extra": [
+      {
+        "case": "F25",
+        "ref": "E",
+        "reason": "本句确定了呼吸衰竭类型，已定位的氧分压读数缺少可核实的动脉标记。请核对标本和同期二氧化碳分压。",
+        "exact": [
+          "氧分压（体温）34.6→38.9mmHg（06:54→15:03，低）"
+        ]
+      }
+    ],
+    "detected": [
+      "B",
+      "C",
+      "D",
+      "E",
+      "H",
+      "I"
+    ],
+    "missed": [],
+    "false_alerts": []
+  },
+  "attempts": 26
+}

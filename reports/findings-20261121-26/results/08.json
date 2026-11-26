@@ -1,0 +1,106 @@
+{
+  "旧版": [
+    {
+      "arm": "direct",
+      "selected": 0,
+      "eligible": [],
+      "cited": [],
+      "new_retrievals": 0
+    },
+    {
+      "arm": "static",
+      "selected": 10,
+      "eligible": [
+        "E1",
+        "E2",
+        "E3",
+        "E5",
+        "E6",
+        "E7",
+        "E8",
+        "E10"
+      ],
+      "cited": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        10
+      ],
+      "new_retrievals": 0
+    },
+    {
+      "arm": "loop",
+      "selected": 10,
+      "eligible": [],
+      "cited": [],
+      "new_retrievals": 0
+    }
+  ],
+  "改版同题实测": {
+    "run_id": "F28-applicability-all-01",
+    "results": {
+      "static": {
+        "old_refs": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          8,
+          10
+        ],
+        "new_refs": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          8,
+          10
+        ],
+        "visible_old": 8,
+        "visible_new": 10,
+        "research_review": "通过：E10的CK阈值仅用于甘露醇段落",
+        "additional_finding": "E5/E6分期标准被写成需启动CRRT。",
+        "usage": {
+          "prompt_tokens": 10709,
+          "total_tokens": 11890,
+          "completion_tokens": 1181
+        },
+        "seconds": 22.89000000001397,
+        "finish_reason": "stop"
+      },
+      "loop": {
+        "old_refs": [],
+        "new_refs": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "visible_old": 0,
+        "visible_new": 10,
+        "research_review": "通过：提及已记录尿量和尿pH；已使用E9并正确区分实测和目标",
+        "additional_finding": "E6的12小时尿量阈值是<0.5，答为<0.3；E8未支持该12小时数值。",
+        "usage": {
+          "prompt_tokens": 10770,
+          "total_tokens": 12791,
+          "completion_tokens": 2021
+        },
+        "seconds": 37.39000000001397,
+        "finish_reason": "stop"
+      }
+    },
+    "scope": "首次回答，研究侧按句与冻结原文核对，临床完整性未作盲评",
+    "new_generation_calls": 2,
+    "applicability_calls": 0
+  }
+}
